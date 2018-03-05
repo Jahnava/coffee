@@ -1,16 +1,21 @@
-function makeCoffee (sugar, milk)
+function set()
 {
-  var instructions = "Boil water,";
+  //get all elements with the id "cssProperty" (all the dropdowns) and log them out in the console.
+  let elements =
+  document.getElementsByName('cssProperty');
 
-  instructions += " pour into cup,";
+  for( let index = 0; index < elements.length; index++
+  )
+  {
+    let cssProperty = elements[ index ].getAttribute('id');
 
-  instructions += " add coffee granules,";
+    let cssValue = elements[ index ].value;
 
-  instructions += " add " + sugar + " spoons of sugar,";
+    let div = document.getElementById('modify');
 
-  instructions += " add " + milk + "% milk.";
-
-  return instructions;
+    div.style[ cssProperty ] = cssValue;
+  }
 }
 
-console.log(makeCoffee(0, 2) );
+//target button with id "set" and add event listener "click". so when it's clicked it sets.
+document.getElementById('set').addEventListener('click', set)
